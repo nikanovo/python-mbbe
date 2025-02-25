@@ -69,3 +69,17 @@ def callback(call):
                                       text=f'{inf[0][0]} \n{inf[0][1]} \n[Читать далее]({inf[0][2]})', parse_mode="Markdown")
                 inf = inf[1:]
                 for l in inf:
+                                        bot.send_message(call.message.chat.id, f'{l[0]} \n{l[1]} \n[Читать далее]({l[2]})', parse_mode="Markdown")
+
+@bot.message_handler(commands=['sport'])
+def sport_command(message):
+    markup = types.InlineKeyboardMarkup(row_width=1)
+    item = types.InlineKeyboardButton('Последние новости Футзала', callback_data='q_1')
+    item2 = types.InlineKeyboardButton('Последние новости Хоккея', callback_data='q_2')
+    item3 = types.InlineKeyboardButton('Последние новости Баскетбола', callback_data='q_3')
+    markup.add(item, item2, item3)
+
+    bot.send_message(message.chat.id, 'Вы можете выбрать:', reply_markup=markup)
+
+bot.infinity_polling()
+
