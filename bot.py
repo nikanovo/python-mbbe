@@ -2,6 +2,9 @@ import telebot
 from telebot import types
 import requests
 from bs4 import BeautifulSoup as b
+import cloudscraper
+   
+
 
 bot = telebot.TeleBot('8078422610:AAHI-iMDiiXgBQKsWpt5jHmSFvj2yR_H_oE')
 
