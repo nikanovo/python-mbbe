@@ -6,7 +6,11 @@ from bs4 import BeautifulSoup as b
 bot = telebot.TeleBot('8078422610:AAHI-iMDiiXgBQKsWpt5jHmSFvj2yR_H_oE')
 
 def get_inf(url):
-    r = requests.get(url)
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    }
+
+    r =requests.get(url, headers=headers)
     soup = b(r.text, 'html.parser')
 
     news_items = soup.find_all('div', class_='se-material__title se-material__title--size-middle')
