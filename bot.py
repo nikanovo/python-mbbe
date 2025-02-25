@@ -5,8 +5,9 @@ from bs4 import BeautifulSoup as b
 
 bot = telebot.TeleBot('8078422610:AAHI-iMDiiXgBQKsWpt5jHmSFvj2yR_H_oE')
 
-def get_inf(url):
-    r = requests.get(url)
+scraper = cloudscraper.create_scraper()
+r = scraper.get(url, timeout=10)
+
     soup = b(r.text, 'html.parser')
 
     news_items = soup.find_all('div', class_='se-material__title se-material__title--size-middle')
@@ -16,8 +17,7 @@ def get_inf(url):
     timing_list = [c.text for c in timings][:3]
 
     ans = []
-    # Изменяем цикл, чтобы он работал с длиной timing_list
-    for j in range(min(3, len(timing_list))):  # Убедитесь, что j не превышает длину timing_list
+    for j in range(3):
         if len(timing_list[j].split()) == 1:
             date = timing_list[j].strip() + ' (сегодня)'
         else:
@@ -26,9 +26,7 @@ def get_inf(url):
         head = news_heads[j].strip()
         text = str(links[j][0]).split('"')[1]
         ans.append([date, head, text])
-
     return ans[::-1]
-
 
 @bot.message_handler(commands=['start'])
 def start_command(message):
