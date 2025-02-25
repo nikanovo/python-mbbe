@@ -10,7 +10,7 @@ def get_inf(url):
     scraper = cloudscraper.create_scraper()
     try:
         r = scraper.get(url, timeout=10)
-        r.raise_for_status()  # Проверка на ошибки HTTP
+        # r.raise_for_status()  # Проверка на ошибки HTTP
     except requests.exceptions.RequestException as e:
         print(f"Ошибка при запросе: {e}")
         return []
