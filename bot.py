@@ -81,5 +81,7 @@ def sport_command(message):
 
     bot.send_message(message.chat.id, 'Вы можете выбрать:', reply_markup=markup)
 
-bot.infinity_polling()
+if __name__ == "__main__":
+    bot.polling(none_stop=True)
+
 
