@@ -3,7 +3,7 @@ from telebot import types
 import requests
 from bs4 import BeautifulSoup as b
 
-bot = telebot.TeleBot('8078422610:AAGhg0kJ65kC7rxbgkekWQTJOzsYo7dJEbo')
+bot = telebot.TeleBot('8078422610:AAHI-iMDiiXgBQKsWpt5jHmSFvj2yR_H_oE')
 
 def get_inf(url):
     r = requests.get(url)
