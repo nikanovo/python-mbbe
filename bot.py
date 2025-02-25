@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup as b
 import cloudscraper
 
-bot = telebot.TeleBot('8078422610:AAHI-iMDiiXgBQKsWpt5jHmSFvj2yR_H_oE')  # Замените на ваш токен
+bot = telebot.TeleBot('8078422610:AAHI-iMDiiXgBQKsWpt5jHmSFvj2yR_H_oE')  
 
 def get_inf(url):
     scraper = cloudscraper.create_scraper()
